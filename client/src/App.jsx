@@ -10,9 +10,9 @@ function App() {
   return (
     <Routes className='bg-primary'>
       <Route path="/" element={<Signin />} />
-      <Route path="home" element={<Home />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="sidebar" element={<Sidebar />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/sidebar" element={<Sidebar />} />
       <Route path="*" element={<NotFound />} />
       {/* <Route path="*" element={<Loading />} /> */}
     </Routes>

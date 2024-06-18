@@ -3,12 +3,14 @@ import logo from '/logo.png'
 import { useSidebar } from '../context/Sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faMessage, faGear, faCalendar, faPortrait, faSignOut } from "@fortawesome/free-solid-svg-icons"
+import { useTheme } from '../context/Theme'
 
 const Sidebar = () => {
-    const { open } = useSidebar()
+    const { theme } = useTheme();
+    const { open } = useSidebar();
 
     return (
-        <div className={`${open ? 'hidden' : 'grid'} grid-cols-1 justify-center bg-secondary text-light text-sm md:text-md h-screen w-2/3 md:w-20`}>
+        <div className={`${open ? 'hidden' : 'grid'} grid-cols-1 justify-center ${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} text-sm md:text-md h-screen w-2/3 md:w-20 transform duration-1000`}>
             <div className="grid justify-center">
                 <img src={logo} alt="logo" className='w-64 md:w-auto' />
             </div>

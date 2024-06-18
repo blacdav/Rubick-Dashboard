@@ -1,4 +1,5 @@
 // import React from 'react'
+import { useTheme } from '../context/Theme'
 // import { useSidebar } from '../context/Sidebar'
 import Header from '../components/header'
 import Sidebar from '../components/sidebar'
@@ -10,10 +11,11 @@ import Location from '../components/location'
 import Period from '../components/period'
 
 const Home = () => {
-    // const { open } = useSidebar()
+    const { theme } = useTheme();
+    // const { open } = useSidebar();
     return (
         <>
-        <div className='flex w-screen bg-primary text-sm md:text-md text-light'>
+        <div className={`${theme ? 'bg-bg text-primary' : 'bg-primary text-light'} flex w-screen text-sm md:text-md transform duration-1000`}>
             <div className={`hidden md:flex w-fit m-0 p-0`}><Sidebar  /></div>
             <div className='flex w-full'>
                 <div className='w-full'>
