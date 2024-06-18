@@ -1,0 +1,19 @@
+{
+  "name": "rubickdashboard",
+  "version": "1.0.0",
+  "description": "server side of the rubick dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blacdav/Rubick_Dashboard.git"
+  },
+  "author": "Blacdav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blacdav/Rubick_Dashboard/issues"
+  },
+  "homepage": "https://github.com/blacdav/Rubick_Dashboard#readme"
+}
