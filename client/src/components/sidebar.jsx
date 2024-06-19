@@ -1,4 +1,5 @@
 // import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '/logo.png'
 import { useSidebar } from '../context/Sidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -10,7 +11,7 @@ const Sidebar = () => {
     const { open } = useSidebar();
 
     return (
-        <div className={`${open ? 'hidden' : 'grid'} grid-cols-1 justify-center ${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} text-sm md:text-md h-screen w-2/3 md:w-20 transform duration-1000`}>
+        <div className={`grid grid-cols-1 justify-center ${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} text-sm md:text-md h-screen w-full md:w-20 transform duration-1000`}>
             <div className="grid justify-center">
                 <img src={logo} alt="logo" className='w-64 md:w-auto' />
             </div>
@@ -36,10 +37,10 @@ const Sidebar = () => {
                     <FontAwesomeIcon icon={faCalendar} />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
-                <li className="hover:border-s-4">
+                <Link to="/profile" onClick={() => {openBar(false)}} className="hover:border-s-4">
                     <FontAwesomeIcon icon={faPortrait} />
                     <span className='flex md:hidden'>Profile</span>
-                </li>
+                </Link>
             </ul>
 
             <div className="flex justify-center text-center gap-2 items-end pb-5 *:cursor-pointer">

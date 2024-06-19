@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell } from "@fortawesome/free-regular-svg-icons"
 import Header from "../components/header"
+import Sidebar from "../components/sidebar"
 
 const Profile = () => {
     return (
+        <>
         <div className="flex flex-col w-full h-screen bg-secondary text-light">
             <div className="h-fit flex md:hidden">
                 <Header />
@@ -89,6 +91,11 @@ const Profile = () => {
             </div>
             </div>
         </div>
+
+        <div className={`${open ? 'flex md:hidden' : 'hidden'} top-0 fixed`}>
+            <Sidebar />
+        </div>
+        </>
     )
 }
 

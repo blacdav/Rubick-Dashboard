@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons"
-import Sidebar from "./sidebar"
+// import Sidebar from "./sidebar"
 import { useSidebar } from '../context/Sidebar'
 import { useTheme } from "../context/Theme"
 
@@ -29,7 +29,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <Sidebar />
+            {/* <Sidebar /> */}
         </>
     )
 }
