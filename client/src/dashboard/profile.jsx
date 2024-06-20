@@ -2,11 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBell } from "@fortawesome/free-regular-svg-icons"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
+import { useTheme } from "../context/Theme"
 
 const Profile = () => {
+    const { theme } = useTheme();
     return (
         <>
-        <div className="flex flex-col w-full h-screen bg-secondary text-light">
+        <div className={`${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} flex flex-col w-full h-screen transform duration-1000`}>
             <div className="h-fit flex md:hidden">
                 <Header />
             </div>
@@ -26,11 +28,11 @@ const Profile = () => {
                     <button className="py-2 px-4 bg-tertiary font-bold w-2/5 mt-3 rounded-full">Upgrade Plan</button>
                 </div>
                 <div className="grid grid-cols-2 *:grid *:justify-center text-center mt-2 items-center">
-                    <div className="border-e-2 border-light">
+                    <div className={`border-e-2 ${theme ? 'border-primary' : 'border-light'}`}>
                         <p className="text-lg font-bold">$236k</p>
                         <p>Total Revenue</p>
                     </div>
-                    <div className="before:content-[''] before:-ml-16 before:-mb-4 before:h-5 before:w-10 before:bg-secondary after:content-[''] after:w-10 after:h-7 after:bg-secondary after:-mt-6 after:-ml-16">
+                    <div className={`${theme ? 'before:bg-light after:bg-light' : 'before:bg-secondary  after:bg-secondary'} before:content-[''] before:-ml-16 before:-mb-4 before:h-5 before:w-10 after:content-[''] after:w-10 after:h-7 after:-mt-6 after:-ml-16 before:transform after:transform before:duration-1000 after:duration-1000`}>
                         <p className="text-lg font-bold">$128k</p>
                         <p>Earnings</p>
                     </div>

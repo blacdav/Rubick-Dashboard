@@ -26,16 +26,16 @@ const Home = () => {
                         <div className='w-full md:h-52'>
                             <Cards />
                         </div>
-                        <div className='w-full h-52 bg-secondary p-3'>
+                        <div className={`${theme ? 'bg-light' : 'bg-secondary'} w-full h-52 p-3 transform duration-1000`}>
                             <Devices />
                         </div>
-                        <div className='w-full h-52 bg-secondary p-3'>
+                        <div className={`${theme ? 'bg-light' : 'bg-secondary'} w-full h-52 p-3 transform duration-1000`}>
                             <Goals />
                         </div>
-                        <div className='w-full h-36 md:h-full md:row-span-2 bg-secondary p-3'>
+                        <div className={`${theme ? 'bg-light' : 'bg-secondary'} w-full h-36 md:h-full md:row-span-2 p-3 transform duration-1000`}>
                             <Location />
                         </div>
-                        <div className='w-full h-36 bg-secondary p-3'>
+                        <div className={`${theme ? 'bg-light' : 'bg-secondary'} w-full h-36 p-3 transform duration-1000`}>
                             <Period />
                         </div>
                     </div>
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
         </div>
         
-        <div className={`${open ? 'flex md:hidden' : 'hidden'} top-0 fixed bg-white `}>
+        <div className={`${open ? 'flex md:hidden translate-x-0' : 'hidden translate-x-full'} top-0 fixed bg-white transform duration-1000`}>
             <Sidebar />
         </div>
         </> 

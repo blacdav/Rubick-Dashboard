@@ -3,7 +3,7 @@ import Signin from './dashboard/login'
 import Home from './dashboard/home'
 import NotFound from './NotFound'
 import Profile from './dashboard/profile'
-import Sidebar from './components/sidebar'
+// import Sidebar from './components/sidebar'
 // import Loading from './Loading'
 
 function App() {

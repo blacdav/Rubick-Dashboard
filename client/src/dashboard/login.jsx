@@ -1,8 +1,27 @@
-// import { useState } from 'react'
-import { Link } from "react-router-dom"
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { useAuth } from '../context/Auth';
+import { useNavigate } from 'react-router-dom';
+import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
-    // const [login, setLogin] = useState({username: '', password: ''})
+    const [login, setLogin] = useState({usrename: '', password: ''});
+    const { isAuth, logout } = useAuth();
+    const navigate = useNavigate();
+    const { google } = useGoogle();
+
+    const handleInput = (e) => {
+        const input = {...login, [e.target.name]: e.target.value}
+        setLogin(input)
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        logout(isAuth);
+        navigate('./home');
+    }
+
     return (
         <div className="text-md bg-primary text-light h-screen">
             <header className="flex justify-between w-4/5 mx-auto py-5 md:py-10 md:mb-10">
@@ -33,24 +52,22 @@ const Login = () => {
                     <form action="#" className="grid mx-auto w-4/5 border-b border-light pb-12 mb-5">
                         <div className="w-full">
                             {/* <label htmlFor="username">Username:</label> */}
-                            <input type="text" placeholder="Enter your username" className="p-2 text-sm text-primary mb-5 rounded-md w-full"/>
+                            <input type="text" name="username" placeholder="Enter your username" className="px-2 py-3 md:py-2 text-sm text-primary mb-5 rounded-md w-full" onClick={handleInput} />
                         </div>
 
                         <div className="w-full">
                             {/* <label htmlFor="username">Password:</label> */}
-                            <input type="text" placeholder="Enter your password" className="p-2 text-sm text-primary mb-1 rounded-md w-full"/>
+                            <input type="text" name="password" placeholder="Enter your password" className="px-2 py-3 md:py-2 text-sm text-primary mb-1 rounded-md w-full" onClick={handleInput} />
                         </div>
 
                         <Link to='/' className="text-sm text-right">Recover Password?</Link>
 
-                        <Link to='home' className="bg-light text-primary font-bold rounded-md p-1 mt-6">Sign In</Link>
-
-                        
+                        <button className="bg-light text-primary font-bold rounded-md px-2 py-3 md:py-2 mt-6" onClick={handleLogin}>Sign In</button>
                     </form>
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
-                    <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-6 *:py-1 *:rounded-md">
-                        <button className="text-primary">G<font-awesome-icon icon="google" /></button>
+                    <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-6 *:py-2 *:rounded-md">
+                        <button className="text-primary" onClick={() => {logout(google); console.log(logout)}}>G<font-awesome-icon icon="google" /></button>
                         <button className="text-primary">F</button>
                         <button className="text-primary">T</button>
                     </div>
