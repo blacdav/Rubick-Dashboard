@@ -1,20 +1,20 @@
 // import React from 'react'
+// import
 
-export const ValidateInput = () => {
-    document.addEventtListener('keyup', () => {
-        if(err.username === '') {
-            setErr('username must not be blank')
-        } else {
-            return null;
-        }
+export const ValidateInput = (login) => {
+    const err = {}
 
-        if(err.password === '') {
-            setErr('password must not be blank')
-        } else if (err.password )
-    })
-    return (
-        <div>
-            
-        </div>
-    )
+    // login.addEventtListener('keyup', () => {
+    if(login.username === '') {
+        err.username = 'username must not be blank';
+    }
+
+    if(login.password === '') {
+        err.password = 'password must not be blank';
+    } else if (login.password.length < 6 || login.password.length > 16) {
+        err.password = 'password must be 6 - 16 characters long';
+    }
+    // })
+
+    return err;
 }
