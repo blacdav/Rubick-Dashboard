@@ -21,7 +21,7 @@ const Sidebar = () => {
             </div>
 
             <ul className="grid *:flex *:md:block *:items-center *:ps-10 *:md:ps-0 text-center w-full *:gap-3 gap-2 *:w-full *:h-fit *:cursor-pointer">
-                <li onClick={() => { openBar(!open); navigate('/home')}} className="hover:border-s-4">
+                <li onClick={() => { openBar(!open); navigate('/home') }} className="hover:border-s-4">
                     <FontAwesomeIcon icon={faHome} />
                     <span className='flex md:hidden'>Dashboard</span>
                 </li>

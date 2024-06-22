@@ -11,7 +11,7 @@ export const SidebarProvider = ({ children }) => {
     }
 
     return(
-        <SidebarContext.Provider value={{open, openBar}}>
+        <SidebarContext.Provider value={{ open, openBar }}>
             { children }
         </SidebarContext.Provider>
     )
