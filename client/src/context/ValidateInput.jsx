@@ -1,6 +1,3 @@
-// import React from 'react'
-// import
-
 export const ValidateInput = (login) => {
     const err = {}
 

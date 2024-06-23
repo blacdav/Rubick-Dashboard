@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-// import { useAuth } from '../context/Auth';
+import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
-    const [login, setLogin] = useState({usrename: '', password: ''});
+    const [login, setLogin] = useState({username: '', password: ''});
     const [err, setErr] = useState({})
-    // const { isAuth, logout } = useAuth();
-    // const navigate = useNavigate();
+    const { isAuth, logout } = useAuth();
+    const navigate = useNavigate();
     // const { google } = useGoogle();
 
     const handleInput = (e) => {
@@ -22,13 +22,13 @@ const Login = () => {
 
         setErr(ValidateInput(login));
         
-        // if(ValidateInput(login)) {
-        //     logout(isAuth);
+        if(ValidateInput(login)) {
+            logout(!isAuth);
 
-        //     if(logout(isAuth)) {
-        //         navigate('./home');
-        //     }
-        // }
+            if(logout(!isAuth)) {
+                navigate('./home');
+            }
+        }
     }
 
     return (
@@ -59,12 +59,12 @@ const Login = () => {
                 <div className="w-full text-center">
                     <h1 className="text-center font-bold leading-5 mb-5">Hello ! <br /> Welcome Back</h1>
                     <form action="#" onSubmit={handleLogin} className="grid mx-auto w-4/5 border-b border-light pb-12 mb-5">
-                        <div className="w-full mb-5">
+                        <div className="w-full mb-5 text-left">
                             <input type="text" name="username" placeholder="Enter your username" className="px-2 py-3 md:py-2 text-sm text-primary rounded-md w-full" onChange={handleInput} />
                             {err.username && <small className='text-red-600'>{err.username}</small>}
                         </div>
 
-                        <div className="w-full mb-1">
+                        <div className="w-full mb-1 text-left">
                             <input type="text" name="password" placeholder="Enter your password" className="px-2 py-3 md:py-2 text-sm text-primary rounded-md w-full" onChange={handleInput} />
                             {err.password && <small className='text-red-600'>{err.password}</small>}
                         </div>
@@ -76,7 +76,7 @@ const Login = () => {
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
                     <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-6 *:py-2 *:rounded-md">
-                        {/* <button className="text-primary" onClick={() => { console.log(logout) }}>G<font-awesome-icon icon="google" /></button> */}
+                        <button className="text-primary" onClick={() => { console.log(logout) }}>G<font-awesome-icon icon="google" /></button>
                         <button className="text-primary">F</button>
                         <button className="text-primary">T</button>
                     </div>
