@@ -25,9 +25,9 @@ const Login = () => {
         if(ValidateInput(login)) {
             logout(!isAuth);
 
-            if(logout(!isAuth)) {
-                navigate('./home');
-            }
+            // if(logout(!isAuth)) {
+                navigate('/home');
+            // }
         }
     }
 

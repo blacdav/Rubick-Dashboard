@@ -1,7 +1,7 @@
 export const ValidateInput = (login) => {
     const err = {}
 
-    // login.addEventtListener('keyup', () => {
+    login.addEventtListener('keyup', () => {
     if(login.username === '') {
         err.username = 'username must not be blank';
     }
@@ -11,7 +11,7 @@ export const ValidateInput = (login) => {
     } else if (login.password.length < 6 || login.password.length > 16) {
         err.password = 'password must be 6 - 16 characters long';
     }
-    // })
+    })
 
     return err;
 }
