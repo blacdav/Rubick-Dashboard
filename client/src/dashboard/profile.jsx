@@ -3,9 +3,11 @@ import { faBell } from "@fortawesome/free-regular-svg-icons"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
 import { useTheme } from "../context/Theme"
+import { useSidebar } from "../context/Sidebar"
 
 const Profile = () => {
     const { theme } = useTheme();
+    const { open } = useSidebar();
     return (
         <>
         <div className={`${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} flex flex-col w-full h-screen transform duration-1000`}>
@@ -39,12 +41,12 @@ const Profile = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 w-full h-2/5 px-5 mt-5 overflow-y-scroll">
+            <div className="grid grid-cols-1 w-full h-2/5 px-5 mt-5">
                 <div className="flex justify-between mb-2">
                     <p className="font-bold">Messages</p>
                     <p>See All</p>
                 </div>
-                <div className="h-full overflow-y-scroll">
+                <div className="h-full overflow-y-auto no-scrollbar">
                     <div className="flex justify-between mb-3">
                         <p className="font-bold">Messages</p>
                         <p>See All</p>
@@ -94,7 +96,7 @@ const Profile = () => {
             </div>
         </div>
 
-        <div className={`${open ? 'flex md:hidden' : 'hidden'} top-0 fixed`}>
+        <div className={`${open === true ? 'flex md:hidden' : 'hidden'} top-0 fixed`}>
             <Sidebar />
         </div>
         </>

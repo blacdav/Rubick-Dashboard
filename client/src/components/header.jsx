@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons"
 // import Sidebar from "./sidebar"
@@ -7,7 +6,7 @@ import { useTheme } from "../context/Theme"
 
 const Header = () => {
     const { theme, light } = useTheme();
-    const { open, openBar } = useSidebar();
+    const { open, setOpen } = useSidebar();
     
     return (
         <>
@@ -23,7 +22,7 @@ const Header = () => {
                     <div className="bg-secondary h-4 w-8 cursor-pointer rounded-full">
                         <div onClick={() => { light(!theme)}} className={`${theme ? 'translate-x-4' : 'translate-x'} bg-tertiary w-4 h-4 rounded-full transform duration-1000`}></div>
                     </div>
-                    <div className="flex md:hidden text-nm" onClick={() => { console.log('menu clicked'); openBar(!open)}}>
+                    <div className="flex md:hidden text-nm" onClick={() => { console.log('menu clicked'); setOpen(!open)}}>
                         <FontAwesomeIcon icon={faBars} />
                     </div>
                 </div>

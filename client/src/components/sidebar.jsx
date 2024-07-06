@@ -10,7 +10,7 @@ import { useAuth } from '../context/Auth'
 
 const Sidebar = () => {
     const { theme } = useTheme();
-    const { open, openBar } = useSidebar();
+    const { open, setOpen } = useSidebar();
     const navigate = useNavigate();
     const { logout } = useAuth();
 
@@ -21,7 +21,7 @@ const Sidebar = () => {
             </div>
 
             <ul className="grid *:flex *:md:block *:items-center *:ps-10 *:md:ps-0 text-center w-full *:gap-3 gap-2 *:w-full *:h-fit *:cursor-pointer">
-                <li onClick={() => { openBar(!open); navigate('/home') }} className="hover:border-s-4">
+                <li onClick={() => { setOpen(false); navigate('/home') }} className="hover:border-s-4">
                     <FontAwesomeIcon icon={faHome} />
                     <span className='flex md:hidden'>Dashboard</span>
                 </li>
@@ -41,7 +41,7 @@ const Sidebar = () => {
                     <FontAwesomeIcon icon={faCalendar} />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
-                <li onClick={() => { openBar(!open); navigate('/profile') }} className="hover:border-s-4">
+                <li onClick={() => { setOpen(false); navigate('/profile') }} className="hover:border-s-4">
                     <FontAwesomeIcon icon={faPortrait} />
                     <span className='flex md:hidden'>Profile</span>
                 </li>
