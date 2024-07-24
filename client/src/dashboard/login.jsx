@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
@@ -78,7 +79,7 @@ const Login = () => {
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
                     <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-6 *:py-2 *:rounded-md">
-                        <button className="text-primary" onClick={() => { console.log(setIsAuth) }}>G<font-awesome-icon icon="google" /></button>
+                        <button className="text-primary" onClick={() => { console.log(setIsAuth) }}><FcGoogle /></button>
                         <button className="text-primary">F</button>
                         <button className="text-primary">T</button>
                     </div>
