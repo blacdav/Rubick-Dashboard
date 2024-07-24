@@ -15,7 +15,7 @@ const Profile = () => {
             <div className="h-fit flex md:hidden">
                 <Header />
             </div>
-            <div className="h-full md:h-auto overflow-y-scroll md:overflow-y-auto">
+            <div className="h-full md:h-auto no-scrollbar overflow-y-scroll md:overflow-y-auto">
             <div className="flex justify-between items-center h-10 md:h-20 px-5 mt-2">
                 <FaBell className="cursor-pointer" />
                 <p>Your plan: <span className="text-tertiary font-bold">Standard</span></p>
