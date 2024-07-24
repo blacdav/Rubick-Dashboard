@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { FaFacebookF } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
@@ -78,10 +80,10 @@ const Login = () => {
                     </form>
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
-                    <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-6 *:py-2 *:rounded-md">
-                        <button className="text-primary" onClick={() => { console.log(setIsAuth) }}><FcGoogle /></button>
-                        <button className="text-primary">F</button>
-                        <button className="text-primary">T</button>
+                    <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-5 *:py-3 *:rounded-md">
+                        <button className="flex justify-center items-center" onClick={() => { console.log(setIsAuth) }}><FcGoogle /></button>
+                        <button className="text-primary flex justify-center items-center"><FaFacebookF /></button>
+                        <button className="text-primary flex justify-center items-center"><FaXTwitter /></button>
                     </div>
 
                     <p>Don&apos;t have an account? <Link to='/' className="font-bold">Create Account</Link> </p>

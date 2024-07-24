@@ -2,7 +2,8 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import logo from '/logo.png'
 import { useSidebar } from '../context/Sidebar'
-import { FaHome, FaCalendar, FaPortrait, FaSignOutAlt} from 'react-icons/fa'
+import { AiFillHome } from 'react-icons/ai'
+import { FaCalendar, FaPortrait, FaSignOutAlt} from 'react-icons/fa'
 import { FaMessage, FaGear} from 'react-icons/fa6'
 import { useTheme } from '../context/Theme'
 import { useNavigate } from 'react-router-dom'
@@ -20,9 +21,9 @@ const Sidebar = () => {
                 <img src={logo} alt="logo" className='w-64 md:w-auto' />
             </div>
 
-            <ul className="grid *:flex *:md:block *:items-center *:justify-center *:text-center *:ps-10 *:md:ps-0 text-center w-full *:gap-3 gap-2 *:w-full *:h-fit *:cursor-pointer">
+            <ul className="grid *:flex *:md:grid *:items-center *:md:justify-center *:ps-10 *:md:ps-0 w-full *:gap-3 gap-0 md:gap-5 *:w-full *:h-fit *:cursor-pointer">
                 <li onClick={() => { setOpen(false); navigate('/home') }} className="hover:border-s-4">
-                    <FaHome />
+                    <AiFillHome />
                     <span className='flex md:hidden'>Dashboard</span>
                 </li>
                 <li className="hover:border-s-4">
@@ -47,7 +48,7 @@ const Sidebar = () => {
                 </li>
             </ul>
 
-            <div className="flex justify-center text-center gap-2 items-end pb-5 *:cursor-pointer">
+            <div className="flex md:grid md:justify-center text-center gap-2 items-center md:items-end pb-5 *:cursor-pointer">
                 <p onClick={() => {logout(true); {logout(true) ? navigate('/') : null}}} className="flex md:block gap-3 items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
                     <FaSignOutAlt />
                     <span className='flex md:hidden'>Logout</span>
