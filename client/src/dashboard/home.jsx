@@ -15,7 +15,7 @@ const Home = () => {
     const { open } = useSidebar();
     return (
         <>
-        <div className={`${theme ? 'bg-bg text-primary' : 'bg-primary text-light'} flex w-screen text-sm md:text-md transform duration-1000`}>
+        <div className={`${theme ? 'bg-[#9DB2BF] text-primary' : 'bg-primary text-light'} flex w-screen text-sm md:text-md transform duration-1000`}>
             <div className={`hidden md:flex w-fit m-0 p-0`}><Sidebar  /></div>
             <div className='flex w-full'>
                 <div className='w-full'>

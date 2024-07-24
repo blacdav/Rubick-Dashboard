@@ -7,6 +7,13 @@ import Profile from './dashboard/profile'
 // import Loading from './Loading'
 
 function App() {
+  // const responseMessage = (response) => {
+  //     console.log(response);
+  // };
+  // const errorMessage = (error) => {
+  //     console.log(error);
+  // };
+
   return (
     <Routes className='bg-primary'>
       <Route path="/" element={<Signin />} />
@@ -15,6 +22,7 @@ function App() {
       {/* <Route path="/sidebar" element={<Sidebar />} /> */}
       <Route path="*" element={<NotFound />} />
       {/* <Route path="*" element={<Loading />} /> */}
+      {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
     </Routes>
   )
 }

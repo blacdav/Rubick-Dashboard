@@ -1,6 +1,4 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { FaBell } from "react-icons/fa6"
-// import { faBell } from "@fortawesome/free-regular-svg-icons"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
 import { useTheme } from "../context/Theme"

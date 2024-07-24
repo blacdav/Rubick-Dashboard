@@ -1,5 +1,3 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons"
 import { FaSearch, FaBars } from 'react-icons/fa';
 // import Sidebar from "./sidebar"
 import { useSidebar } from '../context/Sidebar'
@@ -11,7 +9,7 @@ const Header = () => {
     
     return (
         <>
-            <div className={`${theme ? 'bg-bg text-primary' : 'bg-primary text-light'} flex justify-between items-center p-5 h-20 w-full transform duration-1000`}>
+            <div className={`${theme ? 'bg-[#9DB2BF] text-primary' : 'bg-primary text-light'} flex justify-between items-center p-5 h-20 w-full transform duration-1000`}>
                 <div className="flex items-center">
                     <h1 className="font-bold mr-5 text-nm">Dashboard</h1>
                     <div className={`${theme ? 'bg-light' : 'bg-secondary'} hidden sm:flex items-center gap-2 py-2 px-4 rounded-full transform duration-1000`}>
