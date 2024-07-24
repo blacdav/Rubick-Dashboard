@@ -1,5 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons"
+import { FaSearch, FaBars } from 'react-icons/fa';
 // import Sidebar from "./sidebar"
 import { useSidebar } from '../context/Sidebar'
 import { useTheme } from "../context/Theme"
@@ -14,7 +15,7 @@ const Header = () => {
                 <div className="flex items-center">
                     <h1 className="font-bold mr-5">Dashboard</h1>
                     <div className={`${theme ? 'bg-light' : 'bg-secondary'} hidden sm:flex items-center gap-2 py-2 px-4 rounded-full transform duration-1000`}>
-                        <FontAwesomeIcon icon={faSearch} />
+                        <FaSearch />
                         <input type="search" name="search" id="search" placeholder="search" className={`${theme ? 'bg-light' : 'bg-secondary'} border-0 outline-0 transform duration-1000`} />
                     </div>
                 </div>
@@ -23,7 +24,7 @@ const Header = () => {
                         <div onClick={() => { light(!theme)}} className={`${theme ? 'translate-x-4' : 'translate-x'} bg-tertiary w-4 h-4 rounded-full transform duration-1000`}></div>
                     </div>
                     <div className="flex md:hidden text-nm" onClick={() => { console.log('menu clicked'); setOpen(!open)}}>
-                        <FontAwesomeIcon icon={faBars} />
+                        <FaBars />
                     </div>
                 </div>
             </div>

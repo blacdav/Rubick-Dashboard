@@ -1,5 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBell } from "@fortawesome/free-regular-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FaBell } from "react-icons/fa6"
+// import { faBell } from "@fortawesome/free-regular-svg-icons"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
 import { useTheme } from "../context/Theme"
@@ -16,7 +17,7 @@ const Profile = () => {
             </div>
             <div className="h-full md:h-auto overflow-y-scroll md:overflow-y-auto">
             <div className="flex justify-between items-center h-10 md:h-20 px-5 mt-2">
-                <FontAwesomeIcon icon={faBell} className="cursor-pointer" />
+                <FaBell className="cursor-pointer" />
                 <p>Your plan: <span className="text-tertiary font-bold">Standard</span></p>
             </div>
 

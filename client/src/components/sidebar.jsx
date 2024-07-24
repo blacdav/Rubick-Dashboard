@@ -1,9 +1,9 @@
-// import React from 'react'
+import React from 'react'
 // import { Link } from 'react-router-dom'
 import logo from '/logo.png'
 import { useSidebar } from '../context/Sidebar'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faMessage, faGear, faCalendar, faPortrait, faSignOut } from "@fortawesome/free-solid-svg-icons"
+import { FaHome, FaCalendar, FaPortrait, FaSignOutAlt} from 'react-icons/fa'
+import { FaMessage, FaGear} from 'react-icons/fa6'
 import { useTheme } from '../context/Theme'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/Auth'
@@ -20,36 +20,36 @@ const Sidebar = () => {
                 <img src={logo} alt="logo" className='w-64 md:w-auto' />
             </div>
 
-            <ul className="grid *:flex *:md:block *:items-center *:ps-10 *:md:ps-0 text-center w-full *:gap-3 gap-2 *:w-full *:h-fit *:cursor-pointer">
+            <ul className="grid *:flex *:md:block *:items-center *:justify-center *:text-center *:ps-10 *:md:ps-0 text-center w-full *:gap-3 gap-2 *:w-full *:h-fit *:cursor-pointer">
                 <li onClick={() => { setOpen(false); navigate('/home') }} className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faHome} />
+                    <FaHome />
                     <span className='flex md:hidden'>Dashboard</span>
                 </li>
                 <li className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faMessage} />
+                    <FaMessage />
                     <span className='flex md:hidden'>Messages</span>
                 </li>
                 <li className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faGear} />
+                    <FaGear />
                     <span className='flex md:hidden'>Settings</span>
                 </li>
                 <li className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faCalendar} />
+                    <FaCalendar />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
                 <li className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faCalendar} />
+                    <FaCalendar />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
                 <li onClick={() => { setOpen(false); navigate('/profile') }} className="hover:border-s-4">
-                    <FontAwesomeIcon icon={faPortrait} />
+                    <FaPortrait />
                     <span className='flex md:hidden'>Profile</span>
                 </li>
             </ul>
 
             <div className="flex justify-center text-center gap-2 items-end pb-5 *:cursor-pointer">
                 <p onClick={() => {logout(true); {logout(true) ? navigate('/') : null}}} className="flex md:block gap-3 items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
-                    <FontAwesomeIcon icon={faSignOut} />
+                    <FaSignOutAlt />
                     <span className='flex md:hidden'>Logout</span>
                 </p>
             </div>
