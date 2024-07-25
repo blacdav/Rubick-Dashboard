@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
 import { useNavigate } from 'react-router-dom';
-import { GoogleLogin } from '@react-oauth/google'
-// import { useGoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google'
+import { useGoogleLogin } from '@react-oauth/google';
 // import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
@@ -52,12 +52,16 @@ const Login = () => {
         return login.username === 'test' && login.password === 'password';
     };
 
-    const responseMessage = (response) => {
-        console.log(response);
-    };
-    const errorMessage = (error) => {
-        console.log(error);
-    };
+    // const responseMessage = (response) => {
+    //     console.log(response);
+    // };
+    // const errorMessage = (error) => {
+    //     console.log(error);
+    // };
+
+    const googleLogin = useGoogleLogin({
+        onSuccess: (tokenResponse) => setIsAuth(tokenResponse),
+    });
 
     return (
         <div className="text-md bg-primary text-light h-screen">
@@ -81,7 +85,7 @@ const Login = () => {
 
             <main className="grid grid-cols-1 lg:grid-cols-2 w-full md:w-4/5 pb-10 mx-auto">
                 <div className="hidden md:grid">
-                <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+                {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
                 </div>
 
                 <div className="w-full text-center">
@@ -104,7 +108,8 @@ const Login = () => {
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
                     <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-5 *:py-3 *:rounded-md">
-                        <button className="flex justify-center items-center" onClick={() => { console.log(setIsAuth) }}><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /></button>
+                        <button className="flex justify-center items-center" onClick={() => { googleLogin(); navigate('/home') }}><FcGoogle /></button>
+                        {/* <button className="flex justify-center items-center" onClick={() => { console.log(setIsAuth) }}><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /></button> */}
                         <button className="text-blue-800 flex justify-center items-center"><FaFacebookF /></button>
                         <button className="text-primary flex justify-center items-center"><FaXTwitter /></button>
                     </div>
