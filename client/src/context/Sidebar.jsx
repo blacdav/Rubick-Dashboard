@@ -6,10 +6,6 @@ const SidebarContext = createContext();
 export const SidebarProvider = ({ children }) => {
     const [open, setOpen] = useState(false);
 
-    // const openBar = (open) => {
-    //     setOpen(open)
-    // }
-
     return(
         <SidebarContext.Provider value={{ open, setOpen }}>
             { children }

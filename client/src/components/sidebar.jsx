@@ -8,13 +8,19 @@ import { FaMessage, FaGear} from 'react-icons/fa6'
 import { googleLogout } from '@react-oauth/google'
 import { useTheme } from '../context/Theme'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/Auth'
+import { useLocation } from 'react-router-dom'
+// import { useAuth } from '../context/Auth'
 
 const Sidebar = () => {
     const { theme } = useTheme();
     const { open, setOpen } = useSidebar();
     const navigate = useNavigate();
-    const { logout } = useAuth();
+    const location = useLocation();
+    const pathname = location.pathname
+    // const { logout } = useAuth();
+
+    const home = pathname === '/home'
+    const profile = pathname === '/profile'
 
     return (
         <div className={`${open ? 'grid' : 'grid'} grid-cols-1 justify-center ${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} text-sm md:text-md h-screen w-full md:w-20 transform duration-1000`}>
@@ -23,7 +29,7 @@ const Sidebar = () => {
             </div>
 
             <ul className="grid *:text-md *:flex *:md:grid *:items-center *:md:justify-center *:ps-10 *:md:ps-0 w-full *:gap-3 gap-0 md:gap-5 *:w-full *:h-fit *:cursor-pointer">
-                <li onClick={() => { setOpen(false); navigate('/home') }} className="hover:border-s-4">
+                <li onClick={() => { setOpen(false); navigate('/home') }} className={`${home ? 'border-s-4 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
                     <AiFillHome />
                     <span className='flex md:hidden'>Dashboard</span>
                 </li>
@@ -43,7 +49,7 @@ const Sidebar = () => {
                     <FaCalendar />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
-                <li onClick={() => { setOpen(false); navigate('/profile') }} className="hover:border-s-4">
+                <li onClick={() => { setOpen(false); navigate('/profile') }} className={`${profile ? 'border-s-2 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
                     <FaPortrait />
                     <span className='flex md:hidden'>Profile</span>
                 </li>

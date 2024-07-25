@@ -21,7 +21,7 @@ const Header = () => {
                     <div className="bg-secondary h-6 w-12 md:h-4 md:w-8 cursor-pointer rounded-full">
                         <div onClick={() => { light(!theme)}} className={`${theme ? 'translate-x-6 md:translate-x-4' : 'translate-x'} bg-tertiary h-6 w-6 md:w-4 md:h-4 rounded-full transform duration-1000`}></div>
                     </div>
-                    <div className="flex md:hidden text-nm" onClick={() => { console.log('menu clicked'); setOpen(!open)}}>
+                    <div className="flex md:hidden text-nm" onClick={() => setOpen(!open)}>
                         <FaBars />
                     </div>
                 </div>
