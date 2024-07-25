@@ -85,7 +85,7 @@ const Login = () => {
             </header>
 
             <main className="grid grid-cols-1 items-center lg:grid-cols-2 w-full md:w-4/5 pb-10 mx-auto">
-                <div className="hidden md:hidden justify-center">
+                <div className="hidden md:flex justify-center">
                     <img src={robot} alt="robot image" className='w-4/5' />
                 {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
                 </div>
