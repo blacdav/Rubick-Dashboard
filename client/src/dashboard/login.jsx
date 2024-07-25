@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
 import { useNavigate } from 'react-router-dom';
+import robot from '../../public/robot.png'
 // import { GoogleLogin } from '@react-oauth/google'
 import { useGoogleLogin } from '@react-oauth/google';
 // import { useGoogle } from '../context/GoogleAuth';
@@ -66,7 +67,7 @@ const Login = () => {
     return (
         <div className="text-md bg-primary text-light h-screen">
             <header className="flex justify-between w-4/5 mx-auto py-5 md:py-10 md:mb-10">
-                <div className="hidden md:flex gap-5">
+                <div className="hidden lg:flex gap-5">
                     <Link to='/'>Home</Link>
                     <Link>About</Link>
                     <Link>Blog</Link>
@@ -74,7 +75,7 @@ const Login = () => {
                     <Link>Contact</Link>
                 </div>
 
-                <div className="hidden md:flex gap-5">
+                <div className="hidden lg:flex gap-5">
                     <select name="lang" id="lang" className="bg-transparent">
                         <option value="english">English</option>
                     </select>
@@ -83,8 +84,9 @@ const Login = () => {
                 </div>
             </header>
 
-            <main className="grid grid-cols-1 lg:grid-cols-2 w-full md:w-4/5 pb-10 mx-auto">
-                <div className="hidden md:grid">
+            <main className="grid grid-cols-1 items-center lg:grid-cols-2 w-full md:w-4/5 pb-10 mx-auto">
+                <div className="hidden md:hidden justify-center">
+                    <img src={robot} alt="robot image" className='w-4/5' />
                 {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
                 </div>
 
