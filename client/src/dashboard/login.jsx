@@ -108,7 +108,7 @@ const Login = () => {
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
                     <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-5 *:py-3 *:rounded-md">
-                        <button className="flex justify-center items-center" onClick={() => { googleLogin(); navigate('/home') }}><FcGoogle /></button>
+                        <button className="flex justify-center items-center" onClick={() => { googleLogin(); setTimeout(() => { navigate('/home') }, 8000); }}><FcGoogle /></button>
                         {/* <button className="flex justify-center items-center" onClick={() => { console.log(setIsAuth) }}><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /></button> */}
                         <button className="text-blue-800 flex justify-center items-center"><FaFacebookF /></button>
                         <button className="text-primary flex justify-center items-center"><FaXTwitter /></button>
