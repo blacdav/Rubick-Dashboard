@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
 import { useNavigate } from 'react-router-dom';
-import robot from '../../public/robot.png'
+import robot from '/robot.png'
 // import { GoogleLogin } from '@react-oauth/google'
 import { useGoogleLogin } from '@react-oauth/google';
 // import { useGoogle } from '../context/GoogleAuth';

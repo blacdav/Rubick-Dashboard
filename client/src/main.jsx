@@ -7,6 +7,7 @@ import { ContextProvider } from './context/ContextProvider'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 const ID = import.meta.env.VITE_CLIENT_ID;
+console.log(ID)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
