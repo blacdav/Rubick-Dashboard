@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ContextProvider } from './context/ContextProvider'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
-const ID = import.meta.env.VITE_CLIENT_ID;
+// const ID = import.meta.env.VITE_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
