@@ -7,13 +7,6 @@ import Profile from './dashboard/profile'
 // import Loading from './Loading'
 
 function App() {
-  // const responseMessage = (response) => {
-  //     console.log(response);
-  // };
-  // const errorMessage = (error) => {
-  //     console.log(error);
-  // };
-
   return (
     <Routes className='bg-primary'>
       <Route path="/" element={<Signin />} />

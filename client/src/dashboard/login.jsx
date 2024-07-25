@@ -7,6 +7,7 @@ import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google'
+// import { useGoogleLogin } from '@react-oauth/google';
 // import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
@@ -28,14 +29,28 @@ const Login = () => {
         
         setErr(ok);
         
-        if(ok) {
-            var success = setIsAuth(isAuth);
-        }
-
-        // if(success) {
-            navigate('/home');
+        // if(ok) {
+        //     setIsAuth(isAuth);
+        //     navigate('/home');
         // }
+
+        if(ok) {
+            // Simulate authentication check
+            const success = authenticateUser(login);
+            setIsAuth(success);
+
+            // Navigate to home page only if authentication is successful
+            if(success) {
+                navigate('/home');
+            }
+        }
     }
+
+    const authenticateUser = (login) => {
+        // Replace with your actual authentication logic
+        // Return true if authentication is successful, otherwise false
+        return login.username === 'test' && login.password === 'password';
+    };
 
     const responseMessage = (response) => {
         console.log(response);
