@@ -55,7 +55,7 @@ const Sidebar = () => {
             </ul>
 
             <div className="flex md:justify-center text-center gap-2 items-center md:items-end pb-5 w-full *:cursor-pointer">
-                <p onClick={() => { setOpen(false); logout()}} className="flex text-md gap-3 md:justify-center items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
+                <p onClick={() => { setOpen(false); setTimeout(() => {logout()}, 1000)}} className="flex text-md gap-3 md:justify-center items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
                     <FaSignOutAlt />
                     <span className='flex md:hidden'>Logout</span>
                 </p>
