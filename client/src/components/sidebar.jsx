@@ -5,11 +5,10 @@ import { useSidebar } from '../context/Sidebar'
 import { AiFillHome } from 'react-icons/ai'
 import { FaCalendar, FaPortrait, FaSignOutAlt} from 'react-icons/fa'
 import { FaMessage, FaGear} from 'react-icons/fa6'
-import { googleLogout } from '@react-oauth/google'
 import { useTheme } from '../context/Theme'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-// import { useAuth } from '../context/Auth'
+import { useAuth } from '../context/Auth'
 
 const Sidebar = () => {
     const { theme } = useTheme();
@@ -17,7 +16,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const pathname = location.pathname
-    // const { logout } = useAuth();
+    const { logout } = useAuth();
 
     const home = pathname === '/home'
     const profile = pathname === '/profile'
@@ -56,7 +55,7 @@ const Sidebar = () => {
             </ul>
 
             <div className="flex md:justify-center text-center gap-2 items-center md:items-end pb-5 w-full *:cursor-pointer">
-                <p onClick={() => { googleLogout(); googleLogout ? navigate('/') : null }} className="flex text-md gap-3 md:justify-center items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
+                <p onClick={() => { setOpen(false); logout()}} className="flex text-md gap-3 md:justify-center items-center ps-10 md:ps-0 hover:border-s-4 h-fit w-full">
                     <FaSignOutAlt />
                     <span className='flex md:hidden'>Logout</span>
                 </p>

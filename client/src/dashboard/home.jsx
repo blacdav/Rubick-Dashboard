@@ -9,10 +9,19 @@ import Devices from '../components/devices'
 import Goals from '../components/goals'
 import Location from '../components/location'
 import Period from '../components/period'
+import { useAuth } from '../context/Auth'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
     const { theme } = useTheme();
     const { open } = useSidebar();
+    const { isAuth } = useAuth();
+    const navigate = useNavigate();
+
+    if(!isAuth) {
+        navigate('/');
+    }
+
     return (
         <>
         <div className={`${theme ? 'bg-[#9DB2BF] text-primary' : 'bg-primary text-light'} flex w-screen text-sm md:text-md transform duration-1000`}>

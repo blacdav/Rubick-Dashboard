@@ -8,13 +8,13 @@ import { ValidateInput } from '../context/ValidateInput';
 import { useNavigate } from 'react-router-dom';
 import robot from '/robot.png'
 // import { GoogleLogin } from '@react-oauth/google'
-import { useGoogleLogin } from '@react-oauth/google';
+// import { useGoogleLogin } from '@react-oauth/google';
 // import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
     const [login, setLogin] = useState({username: '', password: ''});
     const [err, setErr] = useState({})
-    const { isAuth, setIsAuth } = useAuth();
+    const { googleLogin } = useAuth();
     const navigate = useNavigate();
     // const { google } = useGoogle();
 
@@ -53,17 +53,6 @@ const Login = () => {
         return login.username === 'test' && login.password === 'password';
     };
 
-    // const responseMessage = (response) => {
-    //     console.log(response);
-    // };
-    // const errorMessage = (error) => {
-    //     console.log(error);
-    // };
-
-    const googleLogin = useGoogleLogin({
-        onSuccess: (tokenResponse) => setIsAuth(tokenResponse),
-    });
-
     return (
         <div className="text-md bg-primary text-light h-screen">
             <header className="flex justify-between w-4/5 mx-auto py-5 md:py-10 md:mb-10">
@@ -87,7 +76,6 @@ const Login = () => {
             <main className="grid grid-cols-1 items-center lg:grid-cols-2 w-full md:w-4/5 pb-10 mx-auto">
                 <div className="hidden md:flex justify-center">
                     <img src={robot} alt="robot image" className='w-3/5' />
-                {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
                 </div>
 
                 <div className="w-full text-center">
@@ -110,8 +98,7 @@ const Login = () => {
                     <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
                     <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-5 *:py-3 *:rounded-md">
-                        <button className="flex justify-center items-center" onClick={() => { googleLogin(); setTimeout(() => { navigate('/home') }, 8000); }}><FcGoogle /></button>
-                        {/* <button className="flex justify-center items-center" onClick={() => { console.log(setIsAuth) }}><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /></button> */}
+                        <button className="flex justify-center items-center" onClick={() => googleLogin()}><FcGoogle /></button>
                         <button className="text-blue-800 flex justify-center items-center"><FaFacebookF /></button>
                         <button className="text-primary flex justify-center items-center"><FaXTwitter /></button>
                     </div>
