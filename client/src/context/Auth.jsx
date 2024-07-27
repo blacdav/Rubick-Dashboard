@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState([]);
     const navigate = useNavigate();
     // const url = import.meta.env.VITE_GOOGLE_URL;
-    const url = `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${isAuth.access_token}`;
 
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
@@ -27,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const getUsers = async () => {
-        const res = await fetch(url, {
+        const res = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${isAuth.access_token}`, {
             headers: {
                 'Authorization': `Bearer ${isAuth.access_token}`,
                 'Content-Type': 'application/json',
