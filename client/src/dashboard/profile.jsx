@@ -3,10 +3,21 @@ import Header from "../components/header"
 import Sidebar from "../components/sidebar"
 import { useTheme } from "../context/Theme"
 import { useSidebar } from "../context/Sidebar"
+import { useAuth } from "../context/Auth"
+import { useNavigate } from "react-router-dom"
 
 const Profile = () => {
     const { theme } = useTheme();
     const { open } = useSidebar();
+    const { isAuth, user } = useAuth();
+    const navigate = useNavigate();
+
+    if(!isAuth) {
+        navigate('/')
+    }
+
+    console.log(user)
+
     return (
         <>
         <div className={`${theme ? 'bg-light text-primary' : 'bg-secondary text-light'} flex flex-col w-full h-screen transform duration-1000`}>
@@ -21,7 +32,9 @@ const Profile = () => {
 
             <div className="grid grid-cols-1 justify-center items-center mt-5">
                 <div className="grid justify-center">
-                    <div className="grid h-24 w-24 bg-light rounded-full after:content-[''] after:h-4 after:w-4 after:bg-tertiary after:rounded-full after:mt-16 after:ml-20 after:border-2"></div>
+                    <div className={`grid h-28 w-28 rounded-full after:content-[''] after:h-4 after:w-4 ${user ? 'after:bg-tertiary  after:border-2' : ''} after:rounded-full after:-mt-4 after:z-10 after:ml-20`}>
+                        <img src={user.picture} alt="user profile" className="h-28 w-28 rounded-full" />
+                    </div>
                 </div>
                 <div className="flex flex-col mt-5 items-center text-center">
                     <p className="text-2xl font-bold m-0">David David</p>

@@ -14,42 +14,40 @@ export const AuthProvider = ({ children }) => {
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
             setIsAuth(tokenResponse);
-            navigate('/home');
+            navigate('/home', { replace: true });
         },
         onError: (error) => console.error(`Login Failed ${error}`)
-    }, console.log(isAuth))
+    })
 
     const logout = () => {
         googleLogout()
         setIsAuth(null);
-        setTimeout(() => {navigate('/')}, 1000)
+        setTimeout(() => {navigate('/', { replace: true })}, 1000)
     }
 
     const getUsers = async () => {
         const res = await fetch(url, {
             headers: {
-                'Authorization': `${isAuth.access_token}`,
+                'Authorization': `Bearer ${isAuth.access_token}`,
                 'Content-Type': 'application/json',
             }
         })
         const data = await res.json();
         setUser(data)
-        console.log(user)
     }
 
     useEffect(() => {
-        // if(isAuth){
+        if(isAuth){
             getUsers();
-        // }
-        // console.log(isAuth)
-    }, [])
+        }
+    }, [isAuth])
 
     // const login = (isAuth) => {
     //     setIsAuth(isAuth);
     // }
 
     return (
-        <AuthContext.Provider value={{ isAuth, setIsAuth, googleLogin, logout }}>
+        <AuthContext.Provider value={{ isAuth, setIsAuth, googleLogin, user, logout }}>
             { children }
         </AuthContext.Provider>
     )
