@@ -9,7 +9,8 @@ export const AuthProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(null);
     const [user, setUser] = useState([]);
     const navigate = useNavigate();
-    const url = import.meta.env.VITE_GOOGLE_URL;
+    // const url = import.meta.env.VITE_GOOGLE_URL;
+    const url = `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${isAuth.access_token}`;
 
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
