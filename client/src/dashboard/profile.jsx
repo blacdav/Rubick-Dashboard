@@ -37,7 +37,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="flex flex-col mt-5 items-center text-center">
-                    <p className="text-2xl font-bold m-0">David David</p>
+                    <p className="text-2xl font-bold m-0">{user.name}</p>
                     <p>user</p>
                     <button className="py-2 px-4 bg-tertiary font-bold w-2/5 mt-3 rounded-full">Upgrade Plan</button>
                 </div>
