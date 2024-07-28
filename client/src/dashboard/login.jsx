@@ -5,18 +5,14 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from "react-router-dom";
 import { useAuth } from '../context/Auth';
 import { ValidateInput } from '../context/ValidateInput';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import robot from '/robot.png'
-// import { GoogleLogin } from '@react-oauth/google'
-// import { useGoogleLogin } from '@react-oauth/google';
-// import { useGoogle } from '../context/GoogleAuth';
 
 const Login = () => {
     const [login, setLogin] = useState({username: '', password: ''});
     const [err, setErr] = useState({})
-    const { googleLogin } = useAuth();
-    const navigate = useNavigate();
-    // const { google } = useGoogle();
+    const { /* signin, */ googleLogin } = useAuth();
+    // const navigate = useNavigate();
 
     const handleInput = (e) => {
         const input = {...login, [e.target.name]: e.target.value}
@@ -29,29 +25,10 @@ const Login = () => {
         const ok = ValidateInput(login)
         
         setErr(ok);
-        
-        // if(ok) {
-        //     setIsAuth(isAuth);
-        //     navigate('/home');
-        // }
-
-        if(ok) {
-            // Simulate authentication check
-            const success = authenticateUser(login);
-            setIsAuth(success);
-
-            // Navigate to home page only if authentication is successful
-            if(success) {
-                navigate('/home');
-            }
+        if(login.username !== '' && login.username !== '') {
+            signin(login)
         }
     }
-
-    const authenticateUser = (login) => {
-        // Replace with your actual authentication logic
-        // Return true if authentication is successful, otherwise false
-        return login.username === 'test' && login.password === 'password';
-    };
 
     return (
         <div className="text-md bg-primary text-light h-screen">
