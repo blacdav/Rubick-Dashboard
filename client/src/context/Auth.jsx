@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }) => {
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
             setIsAuth(tokenResponse);
-            getGoogleProfile();
             navigate('/home', { replace: true });
         },
         onError: (error) => console.error(`Login Failed ${error}`)
@@ -61,11 +60,11 @@ export const AuthProvider = ({ children }) => {
         setUser(data)
     }
 
-    // useEffect(() => {
-    //     if(isAuth){
-    //         getGoogleProfile();
-    //     }
-    // }, [isAuth])
+    useEffect(() => {
+        if(isAuth !== ''){
+            getGoogleProfile();
+        }
+    }, [isAuth])
 
     return (
         <AuthContext.Provider value={{ isAuth, googleLogin, /* signin, */ user, logout }}>

@@ -18,9 +18,10 @@ const Home = () => {
     const { isAuth } = useAuth();
     const navigate = useNavigate();
 
-    if(!isAuth) {
+    if(!isAuth.access_token) {
         navigate('/');
     }
+    // console.log(isAuth.access_token)
 
     return (
         <>
