@@ -1,5 +1,4 @@
-import React from 'react'
-// import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import logo from '/logo.png'
 import { useSidebar } from '../context/Sidebar'
 import { AiFillHome } from 'react-icons/ai'
@@ -17,6 +16,7 @@ const Sidebar = () => {
     const location = useLocation();
     const pathname = location.pathname
     const { logout, isAuth } = useAuth();
+    const [width, setWidth] = useState(window.innerWidth);
 
     const home = pathname === '/home'
     const profile = pathname === '/profile'
@@ -48,7 +48,7 @@ const Sidebar = () => {
                     <FaCalendar />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
-                <li onClick={() => { setOpen(false); navigate('/profile') }} className={`${profile ? 'border-s-4 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
+                <li onClick={() => { setOpen(false); (width <= 425 ? navigate('/profile') : null) }} className={`${profile ? 'border-s-4 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
                     <FaPortrait />
                     <span className='flex md:hidden'>Profile</span>
                 </li>

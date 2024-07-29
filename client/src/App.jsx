@@ -4,7 +4,6 @@ import Home from './dashboard/home'
 import NotFound from './NotFound'
 import Profile from './dashboard/profile'
 import Register from './dashboard/register'
-// import Sidebar from './components/sidebar'
 // import Loading from './Loading'
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
       <Route path="/" element={<Signin />} />
       <Route path="/home" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
-      {/* <Route path="/sidebar" element={<Sidebar />} /> */}
       <Route path="*" element={<NotFound />} />
       <Route path='/register' element={<Register />} />
       {/* <Route path="*" element={<Loading />} /> */}

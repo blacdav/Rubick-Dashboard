@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import React from "react"
 import { FaBell } from "react-icons/fa6"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
