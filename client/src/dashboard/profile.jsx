@@ -57,7 +57,7 @@ const Profile = () => {
             </div>
         </div>
 
-        <div className={`${open === true ? 'flex md:hidden translate-x-0' : '-translate-x-full'} top-0 fixed transform duration-1000`}>
+        <div className={`${open === true ? 'flex md:hidden translate-x-0' : '-translate-x-full md:translate-x-1 md:-z-10'} top-0 fixed transform duration-1000`}>
             <Sidebar />
         </div>
         </>
