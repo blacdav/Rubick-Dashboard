@@ -61,10 +61,10 @@ export const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        if(isAuth !== ''){
+        if(isAuth.access_token){
             getGoogleProfile();
         }
-    }, [isAuth])
+    }, [isAuth.access_token])
 
     return (
         <AuthContext.Provider value={{ isAuth, googleLogin, /* signin, */ user, logout }}>

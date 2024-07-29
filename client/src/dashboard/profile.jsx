@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { FaBell } from "react-icons/fa6"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
@@ -10,14 +11,12 @@ import Messages from '../components/messages'
 const Profile = () => {
     const { theme } = useTheme();
     const { open } = useSidebar();
-    const { isAuth, user } = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate();
 
-    if(!isAuth) {
-        navigate('/')
+    if (!user.id) {
+        navigate('/');
     }
-
-    console.log(user)
 
     return (
         <>
@@ -58,7 +57,7 @@ const Profile = () => {
             </div>
         </div>
 
-        <div className={`${open === true ? 'flex md:hidden' : 'hidden'} top-0 fixed`}>
+        <div className={`${open === true ? 'flex md:hidden translate-x-0' : '-translate-x-full'} top-0 fixed transform duration-1000`}>
             <Sidebar />
         </div>
         </>

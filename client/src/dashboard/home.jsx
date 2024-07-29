@@ -1,4 +1,4 @@
-// import React from 'react'
+import React, { useEffect } from 'react'
 import { useTheme } from '../context/Theme'
 import { useSidebar } from '../context/Sidebar'
 import Header from '../components/header'
@@ -15,13 +15,12 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
     const { theme } = useTheme();
     const { open } = useSidebar();
-    const { isAuth } = useAuth();
+    const { user } = useAuth();
     const navigate = useNavigate();
 
-    if(!isAuth.access_token) {
+    if (!user.id) {
         navigate('/');
     }
-    // console.log(isAuth.access_token)
 
     return (
         <>
@@ -54,7 +53,7 @@ const Home = () => {
             </div>
         </div>
         
-        <div className={`${open ? 'flex md:hidden translate-x-0' : 'hidden translate-x-full'} top-0 fixed bg-white transform duration-1000`}>
+        <div className={`${open ? 'flex md:hidden translate-x' : '-translate-x-full'} top-0 fixed transition-transform duration-1000`}>
             <Sidebar />
         </div>
         </> 

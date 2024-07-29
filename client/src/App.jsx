@@ -3,6 +3,7 @@ import Signin from './dashboard/login'
 import Home from './dashboard/home'
 import NotFound from './NotFound'
 import Profile from './dashboard/profile'
+import Register from './dashboard/register'
 // import Sidebar from './components/sidebar'
 // import Loading from './Loading'
 
@@ -14,6 +15,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       {/* <Route path="/sidebar" element={<Sidebar />} /> */}
       <Route path="*" element={<NotFound />} />
+      <Route path='/register' element={<Register />} />
       {/* <Route path="*" element={<Loading />} /> */}
       {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
     </Routes>

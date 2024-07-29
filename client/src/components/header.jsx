@@ -1,5 +1,4 @@
 import { FaSearch, FaBars } from 'react-icons/fa';
-// import Sidebar from "./sidebar"
 import { useSidebar } from '../context/Sidebar'
 import { useTheme } from "../context/Theme"
 
@@ -26,8 +25,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <Sidebar /> */}
         </>
     )
 }

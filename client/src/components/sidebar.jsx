@@ -16,7 +16,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const pathname = location.pathname
-    const { logout } = useAuth();
+    const { logout, isAuth } = useAuth();
 
     const home = pathname === '/home'
     const profile = pathname === '/profile'
@@ -48,7 +48,7 @@ const Sidebar = () => {
                     <FaCalendar />
                     <span className='flex md:hidden'>Calender</span>
                 </li>
-                <li onClick={() => { setOpen(false); navigate('/profile') }} className={`${profile ? 'border-s-2 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
+                <li onClick={() => { setOpen(false); navigate('/profile') }} className={`${profile ? 'border-s-4 border-tertiary text-tertiary' : ''} hover:border-s-4`}>
                     <FaPortrait />
                     <span className='flex md:hidden'>Profile</span>
                 </li>
