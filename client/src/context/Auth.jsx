@@ -11,11 +11,11 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     // const url = import.meta.env.VITE_GOOGLE_URL;
 
-    const signin = (users) => {
-        setUser(users);
-        setIsAuth(user);
-        navigate('/home', { replace: true });
-    }
+    // const signin = (users) => {
+    //     setUser(users);
+    //     setIsAuth(user);
+    //     navigate('/home', { replace: true });
+    // }
 
     // const signinProfile = async () => {
     //     try {
@@ -38,26 +38,37 @@ export const AuthProvider = ({ children }) => {
     const googleLogin = useGoogleLogin({
         onSuccess: (tokenResponse) => {
             setIsAuth(tokenResponse);
-            navigate('/home', { replace: true });
+            setTimeout(() => navigate('/home', { replace: true }), 1000)
         },
         onError: (error) => console.error(`Login Failed ${error}`)
     })
 
     const logout = () => {
         googleLogout()
-        setIsAuth(null);
+        setIsAuth([]);
+
         setTimeout(() => {navigate('/', { replace: true })}, 1000)
     }
 
     const getGoogleProfile = async () => {
-        const res = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${isAuth.access_token}`, {
-            headers: {
-                'Authorization': `Bearer ${isAuth.access_token}`,
-                'Content-Type': 'application/json',
+        try {
+            const res = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${isAuth.access_token}`, {
+                headers: {
+                    'Authorization': `Bearer ${isAuth.access_token}`,
+                    'Content-Type': 'application/json',
+                }
+            })
+            if(!res.ok) {
+                throw new Error(`Network response was not ok`)
             }
-        })
-        const data = await res.json();
-        setUser(data)
+            const data = await res.json();
+            setUser(data)
+        } catch (error) {
+            if(!user.id) {
+                throw new Error(`Failed to fetch Profile`)
+            }
+            console.error(`Error fetching Profile ${error}`)            
+        }
     }
 
     useEffect(() => {

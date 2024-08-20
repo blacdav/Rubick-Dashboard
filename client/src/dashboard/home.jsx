@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useTheme } from '../context/Theme'
 import { useSidebar } from '../context/Sidebar'
 import Header from '../components/header'

@@ -34,59 +34,59 @@ const signup = ({ switchScreen, setSwitchScreen }) => {
             <div className={`${switchScreen ? 'hidden' : 'grid'} gap-3`}>
                 <div className='flex gap-3'>
                     <div className="w-full text-left">
-                        <input type="text" name="username" placeholder="Lastname" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                        <input type="text" name="username" placeholder="Lastname" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                         {err.username && <small className='text-red-600'>{err.username}</small>}
                     </div>
 
                     <div className="w-full text-left">
-                        <input type="password" name="password" placeholder="Firstname" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                        <input type="password" name="password" placeholder="Firstname" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                         {err.password && <small className='text-red-600'>{err.password}</small>}
                     </div>
                 </div>
 
                 <div className='flex gap-3'>
                     <div className="w-full text-left">
-                        <input type="text" name="username" placeholder="Middlename" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                        <input type="text" name="username" placeholder="Middlename" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                         {err.username && <small className='text-red-600'>{err.username}</small>}
                     </div>
 
                     <div className="w-full text-left">
-                        <input type="password" name="password" placeholder="Username" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                        <input type="password" name="password" placeholder="Username" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                         {err.password && <small className='text-red-600'>{err.password}</small>}
                     </div>
                 </div>
 
                 <div className="w-full text-left">
-                    <input type="text" name="username" placeholder="Email" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                    <input type="text" name="username" placeholder="Email" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                     {err.username && <small className='text-red-600'>{err.username}</small>}
                 </div>
 
-                <div onClick={() => setSwitchScreen(true)} className="bg-transparent hover:bg-light text-light hover:text-primary border-2 border-light font-bold rounded-md px-2 py-4 md:py-2 mt-2 hover:cursor-pointer">Continue</div>
+                <div onClick={() => setSwitchScreen(true)} className="bg-light text-primary font-bold rounded-md px-2 py-4 md:py-2 mt-2 hover:cursor-pointer">Continue</div>
             </div>
 
             <div className={`${switchScreen ? 'grid' : 'hidden'} gap-3`}>
                 <div className="w-full text-left">
-                    <input type="password" name="password" placeholder="Password" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                    <input type="password" name="password" placeholder="Password" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                     {err.password && <small className='text-red-600'>{err.password}</small>}
                 </div>
 
                 <div className="w-full text-left">
-                    <input type="password" name="password" placeholder="Confirm Password" className="px-2 py-4 md:py-3 text-sm text-primary rounded-md w-full" onChange={handleInput} />
+                    <input type="password" name="password" placeholder="Confirm Password" className="px-2 py-4 md:py-3 text-sm text-white border-2 border-white bg-transparent outline-none rounded-md w-full" onChange={handleInput} />
                     {err.password && <small className='text-red-600'>{err.password}</small>}
                 </div>
 
                 <div className='flex gap-3'>
                     <div onClick={() => setSwitchScreen(false)} className="bg-transparent hover:bg-light border-2 border-light text-light hover:text-primary font-bold rounded-md px-2 py-4 md:py-2 mt-2 w-full hover:cursor-pointer">Back</div>
-                    <button type='submit' className="bg-light text-primary font-bold rounded-md px-2 py-4 md:py-2 mt-2 w-full">Sign Up</button>
+                    <button type='submit' className="bg-light text-primary font-bold rounded-md px-2 py-4 md:py-2 mt-2 w-full hover:scale-105">Sign Up</button>
                 </div>
             </div>
         </form>
         <p className="text-sm -mt-8 mx-auto relative bg-primary w-fit px-1 text-center">Or Continue with</p>
 
         <div className="*:w-1/5 *:bg-light flex gap-3 justify-center my-5 *:py-3 *:rounded-md">
-            <button className="flex justify-center items-center" onClick={() => googleLogin()}><FcGoogle /></button>
-            <button className="text-blue-800 flex justify-center items-center"><FaFacebookF /></button>
-            <button className="text-primary flex justify-center items-center"><FaXTwitter /></button>
+            <button className="flex justify-center items-center hover:scale-105" onClick={() => googleLogin()}><FcGoogle /></button>
+            <button className="text-blue-800 flex justify-center items-center hover:scale-105"><FaFacebookF /></button>
+            <button className="text-primary flex justify-center items-center hover:scale-105"><FaXTwitter /></button>
         </div>
 
         <p>Already have an account? <Link to='/' onClick={() => setSwitchScreen(false)} className="font-bold">Sign Up</Link> </p>
